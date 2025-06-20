@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "8081:9090"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+
+  alertmanager:
+    image: prom/alertmanager
+    volumes:
+      - ./alertmanager/config.yml:/etc/alertmanager/config.yml
+    ports:
+      - "8082:9093"
+
+  app:
+    image: demo-app-for-alert
+    ports:
+      - "8080:8080"
+    depends_on:
+      - prometheus

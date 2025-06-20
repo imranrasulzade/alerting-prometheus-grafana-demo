@@ -1,0 +1,17 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'rasulzade002@gmail.com'
+  smtp_auth_username: 'rasulzade002@gmail.com'
+  smtp_auth_password: 'ualelzjnbbtvvgav'  # Replace this with actual App Password
+
+route:
+  group_wait: 10s
+  group_interval: 30s
+  repeat_interval: 1h
+  receiver: 'email-notifications'
+
+receivers:
+  - name: 'email-notifications'
+    email_configs:
+      - to: 'imranrasulzade5@gmail.com'
+        send_resolved: true

@@ -1,0 +1,11 @@
+groups:
+  - name: error-alerts
+    rules:
+      - alert: HighErrorRate
+        expr: rate(http_server_requests_seconds_count{status="500"}[1m]) > 5
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "High error rate detected (more than 5x 500 errors in 1 min)"
+          description: "More than 5 errors with status 500 have been returned in the last minute."
