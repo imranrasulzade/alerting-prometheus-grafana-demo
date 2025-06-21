@@ -2,7 +2,7 @@ global:
   smtp_smarthost: 'smtp.gmail.com:587'
   smtp_from: 'rasulzade002@gmail.com'
   smtp_auth_username: 'rasulzade002@gmail.com'
-  smtp_auth_password: 'ualelzjnbbtvvgav'  # Replace this with actual App Password
+  smtp_auth_password: 'ualelzjnbbtvvgav'
 
 route:
   group_wait: 10s
